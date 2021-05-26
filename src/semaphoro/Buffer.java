@@ -31,9 +31,9 @@ public class Buffer {
 	public void add(int numero) {
 		
 		try {
-			System.out.println("Antes Acquire: bufferVazio.size = " + bufferVazio.getSemaphoreSize());
+			//System.out.println("Antes Acquire: bufferVazio.size = " + bufferVazio.getSemaphoreSize());
 			bufferVazio.acquire();
-			System.out.println("Depois Acquire: bufferVazio.size" + bufferVazio.getSemaphoreSize());
+			//System.out.println("Depois Acquire: bufferVazio.size" + bufferVazio.getSemaphoreSize());
 
 			if(posicaoLivre >= TAMANHO_ARRAY) {
 				System.out.println("#### Erro durante produção");
@@ -50,17 +50,17 @@ public class Buffer {
 		} catch (InterruptedException e) {
 			System.out.println("#### Erro durante produção");
 		}
-		System.out.println("Antes Release: bufferCheio.size = " + bufferCheio.getSemaphoreSize());
+		//System.out.println("Antes Release: bufferCheio.size = " + bufferCheio.getSemaphoreSize());
 		bufferCheio.release();
-		System.out.println("Depois Release: bufferCheio.size = " + bufferCheio.getSemaphoreSize());
+		//System.out.println("Depois Release: bufferCheio.size = " + bufferCheio.getSemaphoreSize());
 		
 	}
 	
 	public void remove() {
 		try {
-			System.out.println("Antes Acquire: bufferCheio.size = " + bufferCheio.getSemaphoreSize());
+			//System.out.println("Antes Acquire: bufferCheio.size = " + bufferCheio.getSemaphoreSize());
 			bufferCheio.acquire();
-			System.out.println("Depois Acquire: bufferCheio.size = " + bufferCheio.getSemaphoreSize());
+			//System.out.println("Depois Acquire: bufferCheio.size = " + bufferCheio.getSemaphoreSize());
 			
 			if(posicaoLivre <= POSICAO_LIVRE_INICIAL) {
 				System.out.println("#### Erro durante consumo");
@@ -74,9 +74,9 @@ public class Buffer {
 				
 				
 			}
-			System.out.println("Antes Releaase: bufferVazio.size = " + bufferVazio.getSemaphoreSize());
+			//System.out.println("Antes Releaase: bufferVazio.size = " + bufferVazio.getSemaphoreSize());
 			bufferVazio.release();
-			System.out.println("Depois Release: bufferVazio.size = " + bufferVazio.getSemaphoreSize());
+			//System.out.println("Depois Release: bufferVazio.size = " + bufferVazio.getSemaphoreSize());
 		} catch (InterruptedException e) {
 			System.out.println("#### Erro durante consumo");
 		}

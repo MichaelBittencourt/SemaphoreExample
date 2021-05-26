@@ -16,7 +16,7 @@ public class Produtor extends Thread {
 		while(true) {
 			try {
 				Thread.sleep(50);
-			}catch (Exception e) {
+			} catch (Exception e) {
 			}
 			
 			int numero = gerandorNumeroAleatorio.nextInt(100);
